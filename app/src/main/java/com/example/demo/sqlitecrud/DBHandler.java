@@ -52,5 +52,29 @@ public class DBHandler extends SQLiteOpenHelper {
         return sb.toString();
     }
 
+    public void deleteStudent(int rno){
+        long id = db.delete("student", "rno=" + rno, null);
+        if(id > 0){
+            Toast.makeText(context, "Query Successful", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Issue", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void updateStudent(int rno, String name){
+        ContentValues cv = new ContentValues();
+        cv.put("rno", rno);
+        cv.put("name", name);
+        long id = db.update("student",  cv, "rno="+rno, null);
+        if(id > 0){
+            Toast.makeText(context, "Query Successful", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(context, "Issue", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
 }

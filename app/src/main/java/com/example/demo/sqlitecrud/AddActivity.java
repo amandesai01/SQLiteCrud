@@ -32,6 +32,10 @@ public class AddActivity extends AppCompatActivity {
                     return;
                 }
                 db.addStudent(rno, name);
+
+                etName.setText("");
+                etRno.setText("");
+                etName.requestFocus();
             }
         });
     }

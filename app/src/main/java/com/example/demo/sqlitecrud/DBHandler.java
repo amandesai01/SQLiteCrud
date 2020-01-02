@@ -43,7 +43,7 @@ public class DBHandler extends SQLiteOpenHelper {
         StringBuffer sb = new StringBuffer();
         Cursor c = db.query("student", null, null, null, null, null, null, null);
         c.moveToFirst();
-        sb.append("Roll No" + "\t" + "Name");
+        sb.append("Roll No" + "\t" + "Name" + "\n");
         if(c.getCount()>0){
             do {
                 sb.append(c.getString(0) + "\t" + c.getString(1) + "\n");

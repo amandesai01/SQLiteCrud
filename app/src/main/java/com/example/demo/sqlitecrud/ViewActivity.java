@@ -14,7 +14,7 @@ public class ViewActivity extends AppCompatActivity {
         db = MainActivity.db;
         tv1 = findViewById(R.id.tv1);
         String data = db.getStudent();
-        if(data.length() == 0){
+        if(data.length() == 12){
             tv1.setText("No Data");
         }
         else{

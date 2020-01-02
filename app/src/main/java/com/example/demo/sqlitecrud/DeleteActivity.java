@@ -27,6 +27,8 @@ public class DeleteActivity extends AppCompatActivity {
                     return;
                 }
                 db.deleteStudent(rno);
+                etRno.setText("");
+                etRno.requestFocus();
             }
         });
     }

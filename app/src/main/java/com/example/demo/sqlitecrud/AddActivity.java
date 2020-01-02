@@ -9,6 +9,7 @@ import android.widget.EditText;
 public class AddActivity extends AppCompatActivity {
     EditText etName, etRno;
     Button btnSave;
+    DBHandler db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,11 +17,21 @@ public class AddActivity extends AppCompatActivity {
         etName = findViewById(R.id.etName);
         etRno = findViewById(R.id.etRno);
         btnSave = findViewById(R.id.btnSave);
-
+        db = MainActivity.db;
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String name  = etName.getText().toString();
+                int rno = Integer.parseInt(etRno.getText().toString());
+                if(name.length() < 2){
+                    etName.setError("Error");
+                    return;
+                }
+                if(rno <= 0){
+                    etRno.setError("Error");
+                    return;
+                }
+                db.addStudent(rno, name);
             }
         });
     }
